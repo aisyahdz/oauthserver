@@ -1,0 +1,14 @@
+Skenario pengetesan:
+
+1. Client Registration: INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ("testclient", "testpass", "http://fake/");
+
+2. Authorize: 
+a. Masuk dulu ke command line : htdocs
+b. http://localhost/my-oauth2/authorize.php?response_type=code&client_id=testclient&state=xyz
+c.. curl -u testclient:testpass http://localhost/my-oauth2/token.php -d 'grant_type=authorization_code&code=YOUR_CODE'
+
+3. Mengakses resource: 
+curl http://localhost/my-oauth2/resource.php -d 'access_token=YOUR_TOKEN'
+
+coba deh
+
